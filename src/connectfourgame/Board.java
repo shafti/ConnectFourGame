@@ -20,14 +20,7 @@ public class Board {
             }            
         }
     }
-//    
-//    public Board(char[][] board) {
-//        
-//        this.board = new char[board.length][];
-//        for(int i = 0; i < board.length; i++) {
-//            this.board[i] = board[i].clone();
-//        }
-//    }
+
     
     public int totalSquares() {
         return numOfColumns * numOfRows;
@@ -49,15 +42,7 @@ public class Board {
        return board[board.length-1][column] == '_';
    }
     
-//    public void setColum(int colset, char charValue){
-//        for (char[] board1 : board) {
-//            if (board1[colset] == '_') {
-//                board1[colset] = charValue;
-//                
-//                break;
-//            }
-//        }        
-//    }
+
     
     public int setColumn(int colset, char charValue) {
         for(int i = 0; i < board.length; i++) {

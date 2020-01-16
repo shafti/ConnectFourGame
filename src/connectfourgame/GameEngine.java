@@ -19,8 +19,8 @@ public class GameEngine {
     private boolean winner;
     private char[] charToPlace = {'X', 'O'};
     private boolean[] level = {false, false, false, false};
-    private int mediumLevel = 5;
-    private int hardLevel = 10;
+    private int mediumLevel = 100;
+    private int hardLevel = 100;
 
     public GameEngine(int playMode) {
         level[playMode] = true;
@@ -30,7 +30,7 @@ public class GameEngine {
 
     public void playGame() {        
         showBoard();
-        while (isPlayable) {            
+        while (isPlayable) {             
             verifySelectColumn();
             setBoardValue(columnSelected);
             showBoard();
@@ -68,6 +68,7 @@ public class GameEngine {
                     if (level[1]) {
                         column = ai.easyMode();
                     } else if (level[2]) {
+                        mediumLevelEvaluator();
                         column = ai.hardMode(mediumLevel);
                     } else {                       
                         column = ai.hardMode(hardLevel);
@@ -85,6 +86,12 @@ public class GameEngine {
                 System.out.println(".....Incorrect input.....");
                 input.nextLine();
             }
+        }
+    }
+    
+    private void mediumLevelEvaluator() {
+        if (counter == 10) {
+            mediumLevel = 25;
         }
     }
 
